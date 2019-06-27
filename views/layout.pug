@@ -1,0 +1,62 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(http-equiv='X-UA-Compatible', content='ie=edge')
+    link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous")
+    link(href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300', rel='stylesheet')
+    link(rel='stylesheet' href='/css/scss/main.css' type='text/css')
+    title Perrennial Designs | Landscaping and Maintenance
+  body
+
+    .content
+      header
+        .logo_header
+          .logo
+            a(href='/' alt='logo')
+              img(src='/images/perrennial_designs_logo.png', alt='Perrennial Design Logo')
+          .header_contact
+            p.header.tel Tel: 0800 123 1234
+            p.header.tel Email: perrennialdesigns@email.com
+            .social_media_icons.green
+              img(src='/images/twitter.svg', alt='twitter icon')
+              img(src='/images/facebook.svg', alt='facebook icon')
+              img(src='/images/instagram.svg', alt='instagram icon')
+            .ctaButtons
+              a.contact_button(href='/contact') Contact Us
+              a.admin_button(href='/admin') Admin
+        nav
+          ul
+            li
+              a(href='/') Home
+            li
+              a(href='/contact') Contact
+            li
+              a(href='/projects') Projects
+            li
+              a(href='/services') Services
+
+      .content-main  
+        img.garden(src='/images/garden.svg')
+        block content
+        
+        
+      footer
+        .footer_container
+          .footer_contact
+            p.footer_contact_text Contact us for a quote
+            p.footer_contact_text or to discuss your project
+            a.contact_button(href='/contact') Contact Us
+          .footer_contact_details
+            p.footer_contact_text Tel: 0800 123 1234
+            p.footer_contact_text Email: perrennialdesigns@email.com
+            .social_media_icons.white
+                img(src='/images/twitter_white.svg', alt='twitter icon')
+                img(src='/images/facebook_white.svg', alt='facebook icon')
+                img(src='/images/instagram_white.svg', alt='instagram icon')
+        p.copyright website by IdleistDesigns | © 2018
+    
+    block scripts
+
+

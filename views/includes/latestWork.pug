@@ -1,0 +1,17 @@
+mixin latestWork(projects)
+    each project in projects
+        .project_card
+            img(src=`/uploads/${project.imageSource}` alt=project.imageAlt)
+            .project_card_desc
+                h3=project.name
+                p.project_desc=project.desc
+                a(class= 'contact_button' href=`/projects/${project._id}`) Project Details
+
+
+#latest_work
+        h2.right Latest Work
+        #project_cards
+            +latestWork(projects)   
+            
+            
+            

@@ -1,0 +1,28 @@
+{
+  "name": "perrennialdesign",
+  "version": "1.0.0",
+  "description": "garden landscape example website",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "garden",
+    "landscape",
+    "maintenance"
+  ],
+  "author": "Ben Rugman",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "dotenv": "^8.0.0",
+    "express": "^4.16.3",
+    "mongodb": "^3.2.3",
+    "mongoose": "^5.5.2",
+    "multer": "^1.4.1",
+    "nodemailer": "^6.1.0",
+    "nodemon": "^1.18.4",
+    "pug": "^2.0.3"
+  }
+}

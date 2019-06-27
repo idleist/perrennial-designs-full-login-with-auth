@@ -1,0 +1,20 @@
+extends layout
+
+mixin services(image, imageAlt, title, desc)
+    .service_card
+            img(src=`images/${image}` alt=imageAlt)
+            .service_card_desc
+                h3=title
+                p.service_desc=desc
+
+
+block content
+    .container
+        h2 Services
+        p No job is too big or small for our experienced team of gardeners and landscape designers.
+        p We offer many services.  Please contact our friendly staff to discuss any work you wish to have done.
+        .services
+            +services('planting.jpg', 'planting', 'Planting and Gardening Advice', 'We offer a wide variety of garden shrubs, trees and wild flowers.  We can also source any plants that we may not have in stock.  We provide planting services and aftercare.')
+            +services('decking.jpg', 'landscaping', 'Garden Design', 'Whether it is a small courtyard or a stately home, we offer garden design services from our team of creative garden designers.')
+            +services('paving.jpg', 'paving', 'Garden Maintenance', 'It\'s those little jobs that take the enjoyment out of gardening.  Grass cutting, weeding and general garden maintenance.  We offer regular contracts for all those boring jobs in the garden so you can get on with enjoying your outdoor space.')
+        

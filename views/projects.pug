@@ -1,0 +1,20 @@
+extends layout
+
+mixin latestWork(projects)
+    each project in projects
+        .project_card
+            img(src=`uploads/${project.imageSource}` alt=project.imageAlt)
+            .project_card_desc
+                h3=project.name
+                p.project_desc=project.desc
+                a(class= 'contact_button' href=`/projects/${project._id}`) Project
+
+
+
+block content
+    .container
+        h2 Projects
+
+        #latest_work
+            #project_cards
+                +latestWork(projects)

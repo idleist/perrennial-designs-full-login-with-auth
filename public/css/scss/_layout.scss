@@ -1,0 +1,147 @@
+$colors: (
+  primary: #065b13,
+  accent: #99ff3d
+);
+
+@function color($color) {
+  @return map-get($colors, $color);
+}
+
+body {
+  font-family: "Open Sans Condensed", sans-serif;
+  background: #eee;
+}
+
+h2 {
+  color: color(primary);
+  font-size: 2rem;
+  margin-bottom: 0.5em;
+}
+
+p {
+  font-size: 1.5rem;
+}
+
+.content {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.content-main {
+  position: relative;
+  flex: 1;
+}
+
+header {
+  p {
+    color: color(primary);
+  }
+
+  .logo_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    height: 130px;
+
+    .header_contact {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+    }
+  }
+}
+
+.ctaButtons {
+  padding-top: 10px;
+}
+.contact_button,
+.admin_button {
+  padding: 0.2em 0.6em;
+  border-radius: 5px;
+  margin-right: 0.3em;
+}
+
+.contact_button {
+  color: color(primary);
+  background-color: color(accent);
+}
+
+.admin_button {
+  color: #fff;
+  background-color: rgb(122, 8, 8);
+}
+
+.social_media_icons > img {
+  width: 30px;
+  margin: 10px 3px 5px 0;
+}
+
+nav {
+  height: 40px;
+  background-color: color(primary);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  ul {
+    display: flex;
+    list-style-type: none;
+
+    li {
+      margin: 0 0.5em;
+
+      a {
+        font-size: 1.1rem;
+        color: white;
+
+        &:hover,
+        &:active {
+          color: color(accent);
+        }
+      }
+    }
+  }
+}
+
+.garden {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  z-index: -1;
+}
+
+footer {
+  height: 100%;
+  background-color: color(primary);
+
+  .footer_container {
+    display: flex;
+    justify-content: space-between;
+    color: white;
+
+    .footer_contact {
+      padding: 1em;
+      // height: 100px;
+    }
+
+    .footer_contact_details {
+      padding: 1em;
+    }
+  }
+
+  .copyright {
+    text-align: center;
+    color: color(accent);
+    margin-bottom: 1em;
+  }
+}
+
+.footer_contact_text {
+  color: white;
+  padding-bottom: 0.2em;
+}

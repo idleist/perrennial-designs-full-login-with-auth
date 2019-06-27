@@ -1,0 +1,22 @@
+extends layout
+
+block content
+    .container
+        #about_us
+            h2.left About Us
+            p.about_us
+                | Perrennial Designs is a family company formed in 1936.  Albert Docker started mowing lawns and
+                | pruning hedges for the people in his village of Thrubnorth.  People were delighted with his work and he gained a great
+                | reputation.  As work poured in, he decided to employ two more locals to help him with the workload.  
+            p.about_us 
+                | Over 80 years later, Alberts family still run the business and now have over 75 employees and two large 
+                | workshop locations.  The ethos is still the same - reliable work, trusted work and quality.  We have
+                | expanded the type of maintenance we now provide.  We still mow customers lawns and prune hedges, but we do so much more.
+                | Whether you would like a full garden design, restoration of garden, major landscaping work, we have the experience
+                | and knowledge for you.  No job is too big or too small.  Contact us and chat to our friendly team about your next project.
+        
+        include includes/latestWork.pug
+
+        include includes/testimonials.pug
+block scripts
+    script(src='/js/script.js')

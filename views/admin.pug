@@ -1,0 +1,66 @@
+extends layout
+
+block content
+    
+    #form--container
+        h1.admin--header Admin Page
+        #admin--text
+            p.admin--text 
+                | Welcome to the admin page.  Here you can use the simple forms below to update the content on your site.
+            p.admin--text
+                | If you have received a great review for any of your latest projects, add the testimonial and the customers name.
+                | It will appear on your home page.
+            p.admin--text
+                | Add details of your latest projects plus a picture of the work.  This will also appear on your home page.
+        .form--container
+            h2.form--heading Add New Testimonials
+            form(method='post', action='/admin/testimonial')
+                .form--input-container
+                    input(type='text', name='name' required)
+                    label Customer Name
+                .form--input-container                
+                    textarea(name="message" required)
+                    label Testimonial
+                input(type='submit' value='Submit')
+        
+        .testimonials--container
+            h2.form--heading Testimonials
+            if testimonials
+                each testimonial in testimonials
+                    .testimonial--listitem
+                        a.testimonial--deletebtn(href=`/admin/testimonial/delete/${testimonial._id}`) 
+                            i(class="fas fa-times")
+                        p.testimonial--listitem-message=testimonial.message
+                        p.testimonial--listitem-name=testimonial.name
+
+        
+
+        .form--container
+            h2.form--heading Input New Projects
+            form(method='post', action='/admin/projects', enctype="multipart/form-data")
+                .form--input-container
+                    input(type='text', name='name' required)
+                    label Project Name
+                .form--input-container
+                    textarea(name="description" required)
+                    label Description of Work                
+                .form--input-container
+                    input(type='file', name='projectImage')
+                    label Project Photo
+                .form--input-container
+                    input(type='text', name='imageAlt' required)
+                    label Describe the Image in a few words
+                input(type='submit' value='Submit')
+
+        .projects--container
+            h2.form--heading Projects
+            if projects
+                each project in projects
+                    .project--listitem
+                        a.project--deletebtn(href=`/admin/projects/delete/${project._id}`) 
+                            i(class="fas fa-times")
+                        img(src=`./uploads/${project.imageSource}`)
+                        .project--listitem-desc
+                            h2.project--listitem-name=project.name
+                            p.project--listitem-message=project.desc
+                        

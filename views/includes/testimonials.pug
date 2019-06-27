@@ -1,0 +1,20 @@
+mixin comments(testimonials)
+
+    each testimonial, index in testimonials
+        li.testimonialListItem(class=`testimonial-${index}`)
+            p.testimonial=testimonial.message
+            p.author=testimonial.name
+
+
+#testimonialsContainer
+    ul.testimonialList
+        +comments(testimonials)
+
+
+#carouselButtons
+    //- button.carouselIndicator(class='currentSlide')
+    //- button.carouselIndicator    
+    //- button.carouselIndicator
+
+
+
