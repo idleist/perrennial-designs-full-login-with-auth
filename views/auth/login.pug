@@ -1,0 +1,21 @@
+extends ../layout
+
+block content
+    
+    #form--container
+        h2 Admin Login Page
+        if errorMessage
+                .user-message.user-message--error=errorMessage
+        .form--container
+            
+            form(method='post', action='pd-admin/login')
+                .form--input-container
+                    input(type='email', name='email' required)
+                    label Email
+                .form--input-container
+                    input(type='password', name='password' required)
+                    label Password
+                input(type='submit' value='Login')
+                
+        
+        

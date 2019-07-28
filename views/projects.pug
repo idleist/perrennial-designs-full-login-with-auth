@@ -7,14 +7,13 @@ mixin latestWork(projects)
             .project_card_desc
                 h3=project.name
                 p.project_desc=project.desc
-                a(class= 'contact_button' href=`/projects/${project._id}`) Project
+                a(class= 'contact_button' href=`/projects/${project._id}`) More Info
 
 
 
 block content
-    .container
-        h2 Projects
+    h2 Projects
 
-        #latest_work
-            #project_cards
-                +latestWork(projects)
+    #latest_work
+        #project_cards
+            +latestWork(projects)

@@ -1,177 +1,105 @@
-.admin--header {
-  font-size: 3rem;
-  color: color(primary);
-  text-align: center;
-}
+/***** Admin Page SCSS *****/
 
-#admin--text {
-  width: 80%;
-  margin-bottom: 2em;
-}
-.admin--text {
-  font-size: 1.8rem;
-  text-align: justify;
-  margin: 0.3em 0;
-}
+/* Contents
+1. Accordians
+2.Testimonials Container
+3.Projects Container
+4.Buttons
+*/
 
-// Form CSS
-
-$form-width: 80%;
-$form-background: none;
-$form-primary-color: color(primary);
-$form-secondary-color: color(accent);
-$form-padding: 2em;
-$form-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
-$form-border-radius: 20px 5px;
-
-$input-border-bottom: 2px solid $form-secondary-color;
-
-#form--container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.form--container {
-  box-sizing: border-box;
-  border-radius: $form-border-radius;
-  padding: $form-padding;
-  width: $form-width;
-  background: $form-background;
+// Accordians - Accordian sections for admin forms and containers
+.accordian {
+  border: none;
   box-shadow: $form-shadow;
-  margin-bottom: 25px;
-
-  .form--heading {
-    text-align: center;
-    margin: 0 0 2em 0;
-    padding: 0;
-    color: $form-primary-color;
-  }
-
-  input[type="submit"] {
-    background: transparent;
-    border: none;
-    outline: none;
-    color: $form-primary-color;
-    background-color: $form-secondary-color;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
+  border-radius: $form-border-radius;
+  background-color: #eee;
+  font-family: $fontFamily;
+  font-size: 1rem;
+  color: color(primary);
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  padding: 1.5em;
+  transition: 0.5s;
+  margin: 0.4em 0;
 }
 
-.form--input-container {
-  position: relative;
-
-  input,
-  textarea {
-    width: 100%;
-    margin-bottom: 30px;
-    // padding: 10px 0 0 0;
-    font-size: 14px;
-    color: $form-primary-color;
-    border: none;
-    border-bottom: $input-border-bottom;
-    outline: none;
-    background: transparent;
-  }
-
-  label {
-    position: absolute;
-    top: 0;
-    left: 0;
-    color: $form-primary-color;
-    font-size: 16px;
-    /*Pointer Event allows input field to be clicked through the label*/
-    pointer-events: none;
-    transition: 0.5s;
-  }
-
-  input:focus ~ label,
-  textarea:focus ~ label,
-  input:valid ~ label,
-  textarea:valid ~ label {
-    top: -18px;
-    left: 0;
-    font-size: 12px;
-    color: $form-secondary-color;
-    outline: none;
-    border: none;
-  }
-}
-/*Removes annoying red outline if no text input*/
-input:invalid,
-textarea:invalid {
-  box-shadow: none;
+.active,
+.accordian:hover {
+  background-color: #ddd;
 }
 
+.accordian:after {
+  content: "\02795"; /* Unicode character for "plus" sign (+) */
+  font-size: 13px;
+  color: color(accent);
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2796"; /* Unicode character for "minus" sign (-) */
+}
+
+// panels that open on click of accordian buttons
+.panel {
+  background-color: #eee;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 1s ease-out;
+}
+
+// Testimonials Container
 .testimonials--container {
-  width: $form-width;
-  display: flex;
-  flex-direction: column;
+  @include flex(column, null, null);
 }
 
 .testimonial--listitem {
   position: relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  @include flex(column, center, space-between);
   border: 1px solid color(primary);
   border-radius: $form-border-radius;
   margin: 0.5em 0;
   padding: 1.5em 0.3em;
 
   &-name {
-    font-size: 1.3rem;
+    font-size: 1rem;
     color: color(accent);
   }
 
   &-message {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
+    margin-bottom: 0.2em;
   }
 }
 
-.testimonial--deletebtn,
-.project--deletebtn {
-  width: 15px;
-  height: 15px;
-  position: absolute;
-  color: #fff;
-  border-radius: 50%;
-  background: red;
-  cursor: pointer;
-  top: 5px;
-  right: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.1em;
-
-  i {
-    font-size: 0.7rem;
-  }
-}
+//Projects Container
 
 .projects--container {
-  width: $form-width;
-  margin-bottom: 15em;
-  text-align: justify;
-  display: flex;
-  flex-direction: column;
+  @include flex(column, null, null);
 
   .project--listitem {
+    @include flex(column, null, center);
     box-shadow: $form-shadow;
     border-radius: $form-border-radius;
     margin-bottom: 2em;
     padding: 0.2em;
     position: relative;
-    display: flex;
 
     img {
-      margin-right: 0.5em;
-      width: 8em;
-      height: 8em;
+      width: 100%;
     }
   }
+}
+
+// Buttons - delete button
+.delete-btn {
+  color: #fff;
+  font-style: $fontFamily;
+  border: none;
+  background: #be2f2f;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 0.3em;
+  margin-top: 0.6em;
 }

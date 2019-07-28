@@ -1,24 +1,12 @@
-var mongoose = require("mongoose");
-var url = process.env.MONGOLAB_URI;
+const mongoose = require("mongoose");
 
-mongoose.connect(url, {
-  useNewUrlParser: true,
-  useCreateIndex: true
-});
-
-var db = mongoose.connection;
-
-var TestimonialSchema = mongoose.Schema({
+const TestimonialSchema = mongoose.Schema({
   name: {
-    type: String,
-    index: true
+    type: String
   },
   message: {
     type: String
   }
 });
 
-var Testimonial = (module.exports = mongoose.model(
-  "Testimonial",
-  TestimonialSchema
-));
+module.exports = Testimonial = mongoose.model("Testimonial", TestimonialSchema);

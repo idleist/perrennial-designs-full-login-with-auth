@@ -1,34 +1,28 @@
+/***** Services Page SCSS *****/
+
 .services {
-  width: 100%;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 0.2em;
+  grid-template-columns: 1fr;
+  grid-gap: 1.5em;
   margin-top: 2em;
-  margin-bottom: 10em;
+
+  @include mediaSm {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .service_card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  @include flex(column, center, null);
 
   img {
-    width: 90%;
+    width: 100%;
     box-shadow: $form-shadow;
+    margin-bottom: 0.6em;
   }
 
-  &_desc {
-    width: 90%;
-    padding-top: 1em;
-
-    h3 {
-      color: color(primary);
-      font-size: 1.6rem;
-      padding-bottom: 0.3em;
-    }
-
-    p {
-      text-align: justify;
-    }
+  h3 {
+    color: color(primary);
+    font-size: 1.6rem;
+    padding-bottom: 0.3em;
   }
 }

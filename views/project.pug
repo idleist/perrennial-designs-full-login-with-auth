@@ -1,8 +1,6 @@
 extends layout
 
 block content
-    .container
-        .project--container
-            h2.project--header=project.name 
-            img.project--img(src=`/uploads/${project.imageSource}` alt=project.imageAlt)
-            p.project--desc=project.desc
+    h2=project.name 
+    img.project--img(src=`/uploads/${project.imageSource}` alt=project.imageAlt)
+    p=project.desc

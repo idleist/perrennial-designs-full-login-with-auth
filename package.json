@@ -15,14 +15,17 @@
   "author": "Ben Rugman",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
+    "connect-flash": "^0.1.1",
+    "connect-mongodb-session": "^2.2.0",
     "dotenv": "^8.0.0",
     "express": "^4.16.3",
+    "express-session": "^1.16.2",
     "mongodb": "^3.2.3",
     "mongoose": "^5.5.2",
     "multer": "^1.4.1",
     "nodemailer": "^6.1.0",
-    "nodemon": "^1.18.4",
     "pug": "^2.0.3"
   }
 }

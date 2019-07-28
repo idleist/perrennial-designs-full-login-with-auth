@@ -9,12 +9,15 @@ mixin services(image, imageAlt, title, desc)
 
 
 block content
-    .container
-        h2 Services
-        p No job is too big or small for our experienced team of gardeners and landscape designers.
-        p We offer many services.  Please contact our friendly staff to discuss any work you wish to have done.
-        .services
-            +services('planting.jpg', 'planting', 'Planting and Gardening Advice', 'We offer a wide variety of garden shrubs, trees and wild flowers.  We can also source any plants that we may not have in stock.  We provide planting services and aftercare.')
-            +services('decking.jpg', 'landscaping', 'Garden Design', 'Whether it is a small courtyard or a stately home, we offer garden design services from our team of creative garden designers.')
-            +services('paving.jpg', 'paving', 'Garden Maintenance', 'It\'s those little jobs that take the enjoyment out of gardening.  Grass cutting, weeding and general garden maintenance.  We offer regular contracts for all those boring jobs in the garden so you can get on with enjoying your outdoor space.')
+    h2 Services
+    p 
+        |No job is too big or small for our experienced team of gardeners and landscape designers.
+        |We offer many services.  Please contact our friendly staff to discuss any work you wish to have done.
+    .services
+        +services('planting.jpg', 'planting', 'Planting and Gardening Advice', 'We offer a wide variety of garden shrubs, trees and wild flowers.  We can also source any plants that we may not have in stock.  We provide planting services and aftercare.')
+        +services('decking.jpg', 'landscaping', 'Garden Design', 'Whether it is a small courtyard or a stately home, we offer garden design services from our team of creative garden designers.')
+        +services('grass.jpeg', 'grass', 'Garden Maintenance', 'It\'s those little jobs that take the enjoyment out of gardening.  Grass cutting, weeding and general garden maintenance.  We offer regular contracts for all those boring jobs in the garden so you can get on with enjoying your outdoor space.')
+        +services('edging.jpeg', 'edgeing', 'Fencing and Edging', 'It\'s the little touches that make the difference.  Choose from our beautiful range of fencing and edging.  Whether traditional white picket fence, or modern industrial wrought iron, we have everything to make your garden stand out.')
+        +services('digging.jpg', 'digging', 'Landscaping', 'If the thought of starting your new garden is putting you off, hours of weeding and ground clearance, then let us do the heavy work.  We offer a \'blank canvas \' service.  We will clear, level, and takeaway all the waste, leaving you with a \'garden canvas\' to work your magic on!')
+        +services('paving.jpg', 'paving', 'Paving and Surfacing', 'We offer turfing and surfacing solutions.  Choose from our large range of natural turf, astro turf, or paving and decking solutions.')
         

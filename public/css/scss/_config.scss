@@ -1,0 +1,49 @@
+/* Configurations - Global Variables, Mixins, Functions */
+
+// Variables
+$colors: (
+  primary: #065b13,
+  accent: #99ff3d
+);
+
+$fontFamily: "Open Sans Condensed", sans-serif;
+
+// Mixins
+@function color($color) {
+  @return map-get($colors, $color);
+}
+
+@mixin flex($direction, $align, $justify) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+// Media Query Mixins
+@mixin mediaPhone {
+  @media screen and (max-width: 599px) {
+    @content;
+  }
+}
+@mixin mediaSm {
+  @media screen and (min-width: 600px) {
+    @content;
+  }
+}
+@mixin mediaMd {
+  @media screen and (min-width: 900px) {
+    @content;
+  }
+}
+@mixin mediaLg {
+  @media screen and (min-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin mediaXl {
+  @media screen and (min-width: 1500px) {
+    @content;
+  }
+}

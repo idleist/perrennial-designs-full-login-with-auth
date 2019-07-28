@@ -1,14 +1,6 @@
-var mongoose = require("mongoose");
-var url = process.env.MONGOLAB_URI;
+const mongoose = require("mongoose");
 
-mongoose.connect(url, {
-  useNewUrlParser: true,
-  useCreateIndex: true
-});
-
-var db = mongoose.connection;
-
-var ProjectSchema = mongoose.Schema({
+const ProjectSchema = mongoose.Schema({
   imageSource: {
     type: String
   },
@@ -23,4 +15,4 @@ var ProjectSchema = mongoose.Schema({
   }
 });
 
-var Project = (module.exports = mongoose.model("Project", ProjectSchema));
+module.exports = Project = mongoose.model("Project", ProjectSchema);

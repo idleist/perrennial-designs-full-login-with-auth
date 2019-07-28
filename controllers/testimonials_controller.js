@@ -1,5 +1,10 @@
 var Testimonial = require("../models/testimonials");
 
+/*******************
+ TESTIMONIALS CONTROLLERS
+ *******************/
+
+// Creates a new testimonial and saves to DB (admin only)
 exports.testimonial_create = (req, res) => {
   var name = req.body.name;
   var message = req.body.message;
@@ -16,8 +21,9 @@ exports.testimonial_create = (req, res) => {
   res.redirect("/");
 };
 
+// Deletes existing testimonial from DB (admin only)
 exports.testimonial_delete = (req, res) => {
-  var id = req.params.testimonialid;
+  var id = req.body.testimonialid;
   Testimonial.findByIdAndDelete(id, function(err, id) {
     if (err) {
       console.log(err);

@@ -1,10 +1,14 @@
 extends layout
 
 block content
+    h2 Contact Us
+    p 
+        | We are here to answer any of your questions.  If you would like to ask us about a job, or request
+        | a quote, please don't hesitate to give us a call, or fill out the contact form, and an advisor will
+        | be in touch soon. 
 
     #form--container
         .form--container
-            h2.form--heading Contact Us
             form(method='post', action='contact/send')
                 .form--input-container
                     input(type='text', name='name' required)

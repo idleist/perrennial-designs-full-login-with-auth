@@ -2,18 +2,40 @@ extends layout
 
 block content
     
-    #form--container
-        h1.admin--header Admin Page
-        #admin--text
-            p.admin--text 
-                | Welcome to the admin page.  Here you can use the simple forms below to update the content on your site.
-            p.admin--text
-                | If you have received a great review for any of your latest projects, add the testimonial and the customers name.
-                | It will appear on your home page.
-            p.admin--text
-                | Add details of your latest projects plus a picture of the work.  This will also appear on your home page.
+    h2 Admin Page
+    p
+    | Welcome to the admin page.  Here you can use the simple forms below to update the content on your site.
+    | If you have received a great review for any of your latest projects, add the testimonial and the customers name.
+    | It will appear on your home page.
+    | Add details of your latest projects plus a picture of the work.  This will also appear on your home page.
+
+
+    button.accordian Add Administrator
+    .panel
+        p 
+        | It is possible to add new administrators to your site.  New Administrators will have
+        | priviledges to add and delete content from the site.
+        if errorMessage
+            .user-message.user-message--error=errorMessage
         .form--container
-            h2.form--heading Add New Testimonials
+            form(method='post', action='/pd-admin/signup' novalidate)
+                .form--input-container
+                    input(type='email', name='email' required)
+                    label Email
+                .form--input-container
+                    input(type='password', name='password' required)
+                    label Choose a password
+                .form--input-container
+                    input(type='password', name='confirmPassword' required)
+                    label Confirm password
+                input(type='submit' value='Add Administrator')
+
+    button.accordian Add New Testimonial
+    .panel
+        p
+        | Add any new client reviews here.  They will appear on the home page in the rolling
+        | carousel at the bottom of the page.  Add the customers name plus their review.
+        .form--container
             form(method='post', action='/admin/testimonial')
                 .form--input-container
                     input(type='text', name='name' required)
@@ -22,21 +44,25 @@ block content
                     textarea(name="message" required)
                     label Testimonial
                 input(type='submit' value='Submit')
-        
+
         .testimonials--container
-            h2.form--heading Testimonials
+            h2 Testimonials
             if testimonials
                 each testimonial in testimonials
                     .testimonial--listitem
-                        a.testimonial--deletebtn(href=`/admin/testimonial/delete/${testimonial._id}`) 
-                            i(class="fas fa-times")
                         p.testimonial--listitem-message=testimonial.message
                         p.testimonial--listitem-name=testimonial.name
+                        form( action="/admin/testimonial/delete" method="post")
+                            input(type="hidden" name="testimonialid" value=testimonial._id)
+                            button.delete-btn(type="submit") Delete
 
-        
 
+    button.accordian Add New Project
+    .panel
+        p
+        | Add new projects that will appear on the home page of this website.  Add a name for the project,
+        | description of work and upload a photo of the work.
         .form--container
-            h2.form--heading Input New Projects
             form(method='post', action='/admin/projects', enctype="multipart/form-data")
                 .form--input-container
                     input(type='text', name='name' required)
@@ -53,14 +79,18 @@ block content
                 input(type='submit' value='Submit')
 
         .projects--container
-            h2.form--heading Projects
+            h2 Projects
             if projects
                 each project in projects
                     .project--listitem
-                        a.project--deletebtn(href=`/admin/projects/delete/${project._id}`) 
-                            i(class="fas fa-times")
                         img(src=`./uploads/${project.imageSource}`)
                         .project--listitem-desc
                             h2.project--listitem-name=project.name
                             p.project--listitem-message=project.desc
+                            form( action="/admin/projects/delete" method="post")
+                                input(type="hidden" name="projectid" value=project._id)
+                                button.delete-btn(type="submit") Delete
+
+block scripts
+    script(src='/js/accordian.js')    
                         

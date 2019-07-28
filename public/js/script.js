@@ -3,8 +3,6 @@
 // ** Variables **
 const carouselContainer = document.querySelector(".testimonialList");
 const testimonials = Array.from(carouselContainer.children);
-const carouselButtons = document.querySelector("#carouselButtons");
-const dots = Array.from(carouselButtons.children);
 
 // Define the width of the carousel container (the ul) so that even if the screen is responsive we know the exact width
 const containerWidth = carouselContainer.getBoundingClientRect().width;

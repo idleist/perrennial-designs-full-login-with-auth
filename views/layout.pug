@@ -24,29 +24,37 @@ html(lang='en')
               img(src='/images/facebook.svg', alt='facebook icon')
               img(src='/images/instagram.svg', alt='instagram icon')
             .ctaButtons
-              a.contact_button(href='/contact') Contact Us
-              a.admin_button(href='/admin') Admin
-        nav
-          ul
-            li
-              a(href='/') Home
-            li
-              a(href='/contact') Contact
-            li
-              a(href='/projects') Projects
-            li
-              a(href='/services') Services
+              ul.ctaButtons_list
+                li  
+                  a.contact_button(href='/contact') Contact Us
+
+                if isLoggedIn
+                  li
+                    a.admin_button(href='/admin') Admin
+                  li
+                    form(action='pd-admin/logout', method='POST')
+                      button.logout_button(type='submit') Logout
+      nav
+        ul
+          li
+            a(href='/') Home
+          li
+            a(href='/projects') Projects
+          li
+            a(href='/services') Services
+          li
+            a(href='/contact') Contact
 
       .content-main  
         img.garden(src='/images/garden.svg')
-        block content
+        .container
+          block content
         
         
       footer
         .footer_container
           .footer_contact
             p.footer_contact_text Contact us for a quote
-            p.footer_contact_text or to discuss your project
             a.contact_button(href='/contact') Contact Us
           .footer_contact_details
             p.footer_contact_text Tel: 0800 123 1234
